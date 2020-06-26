@@ -17,16 +17,16 @@
     WIZARD_SURNAMES: WIZARD_SURNAMES,
     WIZARD_COATS: WIZARD_COATS,
     WIZARD_EYES: WIZARD_EYES,
-    FIREBAll: FIREBAll,
+    FIREBAllS: FIREBAll,
     STR: STR,
     NUMBER: NUMBER,
     MIN_NAME_LENGTH: MIN_NAME_LENGTH,
-    MAX_NAME_LENGTH: MAX_NAME_LENGTH
-  };
+    MAX_NAME_LENGTH: MAX_NAME_LENGTH,
 
-  window.getRandomElement = function (elements) {
-    var index = Math.floor(Math.random() * elements.length);
-    return elements[index];
+    getRandomElement: function (elements) {
+      var index = Math.floor(Math.random() * elements.length);
+      return elements[index];
+    }
   };
 
 })();

@@ -28,12 +28,12 @@
   var userCoatInput = document.querySelector('.wizard-coat');
 
   userCoatInput.addEventListener('click', function () {
-    userCoatInput.style.fill = window.getRandomElement(window.util.WIZARD_COATS);
+    userCoatInput.style.fill = window.util.getRandomElement(window.util.WIZARD_COATS);
   });
 
   userCoatInput.addEventListener('keydown', function (evt) {
     if (evt.key === 'Enter') {
-      userCoatInput.style.fill = window.getRandomElement(window.util.WIZARD_COATS);
+      userCoatInput.style.fill = window.util.getRandomElement(window.util.WIZARD_COATS);
     }
   });
 
@@ -41,12 +41,12 @@
   var userEyesInput = document.querySelector('.wizard-eyes');
 
   userEyesInput.addEventListener('click', function () {
-    userEyesInput.style.fill = window.getRandomElement(window.util.WIZARD_EYES);
+    userEyesInput.style.fill = window.util.getRandomElement(window.util.WIZARD_EYES);
   });
 
   userEyesInput.addEventListener('keydown', function (evt) {
     if (evt.key === 'Enter') {
-      userEyesInput.style.fill = window.getRandomElement(window.util.WIZARD_EYES);
+      userEyesInput.style.fill = window.util.getRandomElement(window.util.WIZARD_EYES);
     }
   });
 
@@ -54,12 +54,12 @@
   var fireballInput = document.querySelector('.setup-fireball-wrap');
 
   fireballInput.addEventListener('click', function () {
-    fireballInput.style.background = window.getRandomElement(window.util.FIREBAll);
+    fireballInput.style.background = window.util.getRandomElement(window.util.FIREBAllS);
   });
 
   fireballInput.addEventListener('keydown', function (evt) {
     if (evt.key === 'Enter') {
-      fireballInput.style.background = window.getRandomElement(window.util.FIREBAll);
+      fireballInput.style.background = window.util.getRandomElement(window.util.FIREBAllS);
     }
   });
 

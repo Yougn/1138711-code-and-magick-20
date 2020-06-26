@@ -4,9 +4,9 @@
 
   var getWizard = function () {
     return {
-      name: window.getRandomElement(window.util.WIZARD_NAMES) + window.util.STR + window.getRandomElement(window.util.WIZARD_SURNAMES),
-      coatColor: window.getRandomElement(window.util.WIZARD_COATS),
-      eyesColor: window.getRandomElement(window.util.WIZARD_EYES)
+      name: window.util.getRandomElement(window.util.WIZARD_NAMES) + window.util.STR + window.util.getRandomElement(window.util.WIZARD_SURNAMES),
+      coatColor: window.util.getRandomElement(window.util.WIZARD_COATS),
+      eyesColor: window.util.getRandomElement(window.util.WIZARD_EYES)
     };
   };
 
