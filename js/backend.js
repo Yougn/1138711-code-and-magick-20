@@ -20,26 +20,33 @@
       }
     });
 
-    xhr.addEventListener('error', function () {
-      onError('Произошла ошибка соединения');
-
+    var takeErrorOne = function () {
       var parent = document.querySelector('.upload');
       var p = document.createElement('p');
       p.innerHTML = 'Произошла ошибка соединения!';
       p.style.marginLeft = '450px';
       p.style.color = 'red';
       parent.appendChild(p);
+    };
+
+
+    xhr.addEventListener('error', function () {
+      onError('Произошла ошибка соединения');
+      takeErrorOne();
     });
 
-    xhr.addEventListener('timeout', function () {
-      onError('Запрос не успел выполниться за ' + xhr.timeout + 'мс');
-
+    var takeErrorTwo = function () {
       var parent = document.querySelector('.upload');
       var p = document.createElement('p');
       p.innerHTML = 'Запрос не успел выполниться за ' + xhr.timeout + 'мс';
       p.style.marginLeft = '450px';
       p.style.color = 'red';
       parent.appendChild(p);
+    };
+
+    xhr.addEventListener('timeout', function () {
+      onError('Запрос не успел выполниться за ' + xhr.timeout + 'мс');
+      takeErrorTwo();
     });
 
     xhr.timeout = TIMEOUT_IN_MS;
