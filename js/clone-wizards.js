@@ -21,8 +21,16 @@
     return wizardElement;
   };
 
+  var showErrorMessage = function (message) {
+    var parent = document.querySelector('.upload');
+    var p = document.createElement('p');
+    p.textContent = message;
+    p.style.marginLeft = '450px';
+    p.style.color = 'red';
+    parent.appendChild(p);
+  };
 
-  window.load(function (wizards) {
+  window.backend.load(function (wizards) {
     var fragment = document.createDocumentFragment();
     for (var i = 0; i < MAX_SIMILAR_WIZARD_COUNT; i++) {
       fragment.appendChild(renderWizard(wizards[i]));
@@ -30,7 +38,7 @@
     similarListElement.appendChild(fragment);
 
     mainElement.querySelector('.setup-similar').classList.remove('hidden');
-  }, function () { });
+  }, showErrorMessage);
 
 
   // var createFragment = function (wizards) {
@@ -47,9 +55,9 @@
   var form = mainElement.querySelector('.setup-wizard-form');
 
   form.addEventListener('submit', function (evt) {
-    window.save(new FormData(form), function (response) {
+    window.backend.save(new FormData(form), function () {
       mainElement.classList.add('hidden');
-    });
+    }, showErrorMessage);
     evt.preventDefault();
   });
 
