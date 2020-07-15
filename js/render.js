@@ -21,24 +21,36 @@
     return wizardElement;
   };
 
-  var showErrorMessage = function (message) {
-    var parent = document.querySelector('.upload');
-    var p = document.createElement('p');
-    p.textContent = message;
-    p.style.marginLeft = '450px';
-    p.style.color = 'red';
-    parent.appendChild(p);
+  // var showErrorMessage = function (message) {
+  //   var parent = document.querySelector('.upload');
+  //   var p = document.createElement('p');
+  //   p.textContent = message;
+  //   p.style.marginLeft = '450px';
+  //   p.style.color = 'red';
+  //   parent.appendChild(p);
+  // };
+
+  var similar = document.querySelector('.setup-similar');
+
+  window.render = function (data) {
+    var takeNumber = data.length > MAX_SIMILAR_WIZARD_COUNT ? MAX_SIMILAR_WIZARD_COUNT : data.length;
+    similarListElement.innerHTML = '';
+    for (var i = 0; i < takeNumber; i++) {
+      similarListElement.appendChild(renderWizard(data[i]));
+    }
+
+    similar.classList.remove('hidden');
   };
 
-  window.backend.load(function (wizards) {
-    var fragment = document.createDocumentFragment();
-    for (var i = 0; i < MAX_SIMILAR_WIZARD_COUNT; i++) {
-      fragment.appendChild(renderWizard(wizards[i]));
-    }
-    similarListElement.appendChild(fragment);
+  // window.backend.load(function (wizards) {
+  //   var fragment = document.createDocumentFragment();
+  //   for (var i = 0; i < MAX_SIMILAR_WIZARD_COUNT; i++) {
+  //     fragment.appendChild(renderWizard(wizards[i]));
+  //   }
+  //   similarListElement.appendChild(fragment);
 
-    mainElement.querySelector('.setup-similar').classList.remove('hidden');
-  }, showErrorMessage);
+  //   mainElement.querySelector('.setup-similar').classList.remove('hidden');
+  // }, window.errorHandler);
 
 
   // var createFragment = function (wizards) {
@@ -57,7 +69,7 @@
   form.addEventListener('submit', function (evt) {
     window.backend.save(new FormData(form), function () {
       mainElement.classList.add('hidden');
-    }, showErrorMessage);
+    }, window.errorHandler);
     evt.preventDefault();
   });
 
